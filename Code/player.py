@@ -13,7 +13,7 @@ class Player(pygame.sprite.Sprite):
         self.surf = pygame.display.get_surface()
         self.pos = [x, y]
 
-        self.image = pygame.image.load("./GolfTower/Graphics/Placeholder/Test-Ball.png").convert_alpha()
+        self.image = pygame.image.load("./Graphics/Placeholder/Test-Ball.png").convert_alpha()
         self.rect = self.image.get_rect(topleft = (x, y))
 
         self.velocityX = 0

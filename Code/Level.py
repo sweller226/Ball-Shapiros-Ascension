@@ -127,23 +127,23 @@ class Level:
 
     def loadTime(self):
         try:
-            with open('./GolfTower/timeData.txt', 'x') as f:
+            with open('./timedata.txt', 'x') as f:
                 self.time = 0
                 f.close()
         except:
-            with open('./GolfTower/timeData.txt') as f:
+            with open('./timedata.txt') as f:
                 data = f.readlines()
                 self.time = float(data[0])
                 f.close()
 
     def saveTime(self):
-        with open('./GolfTower/timeData.txt', 'w') as f:
+        with open('./timedata.txt', 'w') as f:
             f.write(str(self.time) + "\n")
             f.close()
     
     def loadPlayer(self):
         try:
-            with open('./GolfTower/playerData.txt') as f:
+            with open('./playerData.txt') as f:
                 data = f.readlines()
                 self.player = Player(float(data[0]), float(data[1]), self.sprites, float(data[2]), float(data[3]))
                 f.close()
@@ -163,8 +163,8 @@ class Level:
                 if button.rect.collidepoint(mousePos) and pygame.mouse.get_pressed()[0]:
                     self.time = 0
                     del self.player
-                    os.remove("./GolfTower/playerData.txt")
-                    os.remove("./GolfTower/timeData.txt")
+                    os.remove("./playerData.txt")
+                    os.remove("./timedata.txt")
                     self.sprites = {}
                     self.backgroundColour = BACKGROUND_COL
 
@@ -203,7 +203,7 @@ class Level:
         Text(210, 100, 100, 100, "You Have Ascended", 70, self.end)
         endTime = self.calculateTime()
         Text(SCREEN_WIDTH/2 - 150, 300, 100, 100, f"Your Time Was {endTime}", 30, self.end, True)
-        # image(200, 400, "../GolfTower/Graphics/Placeholder/BenShapiro_Smug.jpg", self.end)
+        # image(200, 400, "../Graphics/Placeholder/BenShapiro_Smug.jpg", self.end)
         Button(SCREEN_WIDTH/2 - 140, 400, 300, 100, f"Restart", 50, self.end)
     
     def draw_level(self):
@@ -234,7 +234,7 @@ class Button:
         self.rect = pygame.rect.Rect(x, y, sizeX, sizeY)
         self.info = text
         self.bgCol = "Black"
-        self.textFont = pygame.font.Font("./GolfTower/Graphics/Fonts/streamer-font/StreamerSlantDemo-WyrX4.otf", fontSize)
+        self.textFont = pygame.font.Font("./Graphics/Fonts/streamer-font/StreamerSlantDemo-WyrX4.otf", fontSize)
         self.text = self.textFont.render(self.info, True, "White", self.bgCol)
         slide.buttonList.append(self)
         self.slide = slide

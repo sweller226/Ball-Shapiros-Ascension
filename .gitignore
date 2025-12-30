@@ -110,3 +110,6 @@ Thumbs.db
 # Game specific
 *.exe
 *.dll
+
+playerData.txt
+timedata.txt

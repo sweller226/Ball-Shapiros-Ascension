@@ -58,7 +58,7 @@ def clamp_val(minimum, maximum, val):
     return val
 
 def save(self):
-    with open('./GolfTower/playerData.txt', 'w') as f:
+    with open('./playerData.txt', 'w') as f:
         f.write(str(self.pos[0]) + "\n")
         f.write(str(self.playerHeight) + "\n")
         f.write(str(self.tracker.pos[1] + self.cameraCorrection) + "\n")
